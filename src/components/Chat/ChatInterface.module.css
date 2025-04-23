@@ -1,0 +1,148 @@
+.chatContainer {
+  @apply flex flex-col h-screen bg-gray-50;
+  max-height: 100vh;
+}
+
+.chatHeader {
+  @apply flex justify-between items-center px-6 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-md;
+}
+
+.chatHeader h2 {
+  @apply text-xl font-semibold;
+}
+
+.closeButton {
+  @apply p-2 hover:bg-white/10 rounded-full transition-colors text-2xl leading-none;
+}
+
+.errorBanner {
+  @apply flex justify-between items-center p-4 bg-red-50 text-red-600 border-l-4 border-red-500;
+}
+
+.dismissError {
+  @apply text-red-600 hover:text-red-800 text-xl leading-none;
+}
+
+.messagesContainer {
+  @apply flex-1 overflow-y-auto p-6 space-y-4;
+  background: linear-gradient(180deg, #f8f9fa, #ffffff);
+}
+
+.message {
+  @apply flex flex-col max-w-[80%] rounded-xl p-4 shadow-sm animate-fadeIn;
+}
+
+.message.text.user {
+  @apply ml-auto bg-primary-500 text-white;
+}
+
+.message.text.ai {
+  @apply mr-auto bg-white;
+}
+
+.message.system {
+  @apply mx-auto bg-secondary-50 text-secondary-700 max-w-2xl text-center;
+}
+
+.message.error {
+  @apply mx-auto bg-red-50 text-red-600 border-l-4 border-red-500;
+}
+
+.messageContent {
+  @apply space-y-3;
+}
+
+.messageContent p {
+  @apply text-base leading-relaxed;
+}
+
+.timestamp {
+  @apply text-xs opacity-70 mt-2;
+}
+
+.suggestions {
+  @apply flex flex-wrap gap-2 mt-3;
+}
+
+.suggestionButton {
+  @apply px-4 py-1.5 text-sm bg-white/10 hover:bg-white/20 rounded-full
+         transition-colors duration-200 text-white border border-white/20;
+}
+
+.loadingIndicator {
+  @apply flex justify-center items-center p-4;
+}
+
+.inputContainer {
+  @apply p-4 bg-white border-t border-gray-100 shadow-lg;
+}
+
+.inputWrapper {
+  @apply relative flex items-end gap-2;
+}
+
+.inputField {
+  @apply w-full p-4 rounded-xl border border-gray-200 focus:border-primary-500
+         focus:ring-2 focus:ring-primary-500/20 resize-none transition-all duration-200;
+  min-height: 60px;
+  max-height: 150px;
+}
+
+.inputActions {
+  @apply flex items-center gap-2;
+}
+
+.actionButton {
+  @apply p-3 rounded-full text-gray-600 hover:bg-gray-100 transition-colors duration-200
+         disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.voiceButton {
+  @apply text-primary-500;
+}
+
+.voiceButton.recording {
+  @apply text-red-500 bg-red-50;
+}
+
+.sendButton {
+  @apply px-6 py-3 bg-primary-500 text-white rounded-xl hover:bg-primary-600
+         transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@media (max-width: 640px) {
+  .message {
+    @apply max-w-[90%];
+  }
+
+  .suggestions {
+    @apply flex-col;
+  }
+
+  .suggestionButton {
+    @apply w-full;
+  }
+
+  .inputContainer {
+    @apply p-3;
+  }
+
+  .inputField {
+    @apply p-3;
+  }
+}

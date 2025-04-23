@@ -1,0 +1,112 @@
+.header {
+  @apply flex justify-between items-center px-6 py-4 bg-white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.logoWrapper {
+  @apply text-xl font-bold text-primary-600 cursor-pointer select-none;
+  background: linear-gradient(135deg, #2b6cb0, #4299e1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav {
+  @apply flex items-center gap-8;
+}
+
+.navLinks {
+  @apply flex items-center gap-6;
+}
+
+.navLink {
+  @apply text-gray-600 font-medium bg-transparent border-none cursor-pointer
+         hover:text-primary-500 transition-colors duration-300;
+  position: relative;
+}
+
+.navLink::after {
+  content: "";
+  @apply absolute left-0 bottom-0 w-0 h-0.5 bg-primary-500 
+         transition-all duration-300;
+}
+
+.navLink:hover::after {
+  @apply w-full;
+}
+
+.chatButton {
+  @apply px-6 py-2 bg-primary-500 text-white rounded-full font-medium
+         transition-all duration-300 hover:bg-primary-600 hover:shadow-lg
+         focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  animation: pulse 2s infinite;
+}
+
+.menuButton {
+  @apply hidden;
+}
+
+.menuBar {
+  @apply w-6 h-0.5 bg-gray-600 mb-1.5 transition-all duration-300;
+}
+
+.menuBar:last-child {
+  @apply mb-0;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(43, 108, 176, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(43, 108, 176, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(43, 108, 176, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    @apply gap-4;
+  }
+
+  .navLinks {
+    @apply gap-4;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav {
+    display: none;
+  }
+
+  .navOpen {
+    @apply flex flex-col absolute top-full left-0 right-0 bg-white 
+           p-4 shadow-lg animate-fadeIn;
+  }
+
+  .navLinks {
+    @apply flex-col w-full gap-2;
+  }
+
+  .navLink,
+  .chatButton {
+    @apply w-full text-center py-3;
+  }
+
+  .menuButton {
+    @apply block bg-transparent border-none cursor-pointer p-2;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

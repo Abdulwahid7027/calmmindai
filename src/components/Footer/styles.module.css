@@ -1,0 +1,155 @@
+.footer {
+  @apply bg-secondary-700 text-white py-16 relative overflow-hidden;
+  background: linear-gradient(to bottom, #1a202c, #2d3748);
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+}
+
+.footerContent {
+  @apply max-w-7xl mx-auto px-4;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.mainContent {
+  @apply grid grid-cols-1 lg:grid-cols-12 gap-12 mb-12;
+}
+
+.brandSection {
+  @apply lg:col-span-4 space-y-6;
+}
+
+.brandTitle {
+  @apply text-2xl font-bold mb-4;
+  background: linear-gradient(135deg, #60a5fa, #93c5fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brandText {
+  @apply text-gray-300 leading-relaxed;
+}
+
+.socialLinks {
+  @apply flex gap-4 mt-6;
+}
+
+.socialLink {
+  @apply w-10 h-10 rounded-full bg-secondary-600 flex items-center justify-center
+         transition-all duration-300 hover:bg-primary-500 hover:-translate-y-1;
+}
+
+.linksGrid {
+  @apply lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-8;
+}
+
+.linkSection {
+  @apply space-y-4;
+}
+
+.linkTitle {
+  @apply text-lg font-semibold text-white mb-4;
+}
+
+.linkList {
+  @apply space-y-3;
+}
+
+.link {
+  @apply text-gray-300 hover:text-white transition-colors duration-200 block;
+}
+
+.link:hover {
+  transform: translateX(4px);
+}
+
+.bottomBar {
+  @apply pt-8 mt-8 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center gap-4;
+}
+
+.copyright {
+  @apply text-gray-400;
+}
+
+.bottomLinks {
+  @apply flex items-center gap-4;
+}
+
+.bottomLink {
+  @apply text-gray-400 hover:text-white transition-colors duration-200;
+}
+
+.divider {
+  @apply text-gray-600;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .footer {
+    @apply py-12;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    @apply gap-8;
+  }
+
+  .brandSection {
+    @apply text-center;
+  }
+
+  .socialLinks {
+    @apply justify-center;
+  }
+
+  .linksGrid {
+    @apply grid-cols-2 gap-6;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    @apply py-10;
+  }
+
+  .linksGrid {
+    @apply grid-cols-1 gap-8;
+  }
+
+  .linkSection {
+    @apply text-center;
+  }
+
+  .bottomBar {
+    @apply text-center;
+  }
+
+  .bottomLinks {
+    @apply justify-center;
+  }
+}

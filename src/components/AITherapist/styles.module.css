@@ -1,0 +1,214 @@
+.aiTherapist {
+  @apply bg-white py-32 relative overflow-hidden;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.aiTherapist::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(66, 153, 225, 0.2),
+    transparent
+  );
+}
+
+.sectionTitle {
+  @apply text-center mb-20;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: #1a202c;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.therapistContent {
+  @apply flex items-center justify-between max-w-7xl mx-auto gap-16 px-4;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.therapistImage {
+  @apply rounded-2xl object-cover;
+  width: min(500px, 100%);
+  height: min(500px, 100%);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+  transition: all 0.5s ease;
+  animation: fadeInLeft 1s ease-out forwards;
+}
+
+.therapistImage:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.12),
+    0 0 0 2px rgba(66, 153, 225, 0.2);
+}
+
+.therapistInfo {
+  @apply flex-1 space-y-8;
+  animation: fadeInRight 1s ease-out forwards;
+}
+
+.therapistDescription {
+  @apply text-xl text-secondary-500 leading-relaxed;
+  font-size: clamp(1.125rem, 1.5vw, 1.25rem);
+  max-width: 600px;
+}
+
+.featureList {
+  @apply space-y-6 mt-12;
+}
+
+.featureItem {
+  @apply flex items-center gap-4 text-secondary-500;
+  transition: transform 0.3s ease;
+}
+
+.featureItem:hover {
+  transform: translateX(10px);
+}
+
+.checkmark {
+  @apply flex items-center justify-center rounded-full;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #2b6cb0, #4299e1);
+  color: white;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
+  transition: all 0.3s ease;
+}
+
+.featureItem:hover .checkmark {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(66, 153, 225, 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1280px) {
+  .therapistContent {
+    @apply gap-12;
+  }
+
+  .therapistImage {
+    width: min(400px, 100%);
+    height: min(400px, 100%);
+  }
+}
+
+@media (max-width: 1024px) {
+  .aiTherapist {
+    @apply py-24;
+  }
+
+  .therapistContent {
+    @apply gap-8;
+  }
+
+  .therapistImage {
+    width: min(350px, 100%);
+    height: min(350px, 100%);
+  }
+}
+
+@media (max-width: 768px) {
+  .therapistContent {
+    @apply flex-col items-center text-center;
+  }
+
+  .therapistInfo {
+    @apply items-center;
+  }
+
+  .therapistDescription {
+    @apply text-center;
+  }
+
+  .featureList {
+    @apply w-full max-w-md mx-auto;
+  }
+
+  .featureItem {
+    @apply justify-start;
+  }
+
+  .featureItem:hover {
+    transform: translateX(0) translateY(-5px);
+  }
+}
+
+@media (max-width: 640px) {
+  .aiTherapist {
+    @apply py-20;
+  }
+
+  .sectionTitle {
+    @apply mb-12;
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+
+  .therapistImage {
+    width: min(300px, 100%);
+    height: min(300px, 100%);
+  }
+
+  .therapistDescription {
+    font-size: 1.125rem;
+  }
+
+  .checkmark {
+    width: 28px;
+    height: 28px;
+    font-size: 1rem;
+  }
+}

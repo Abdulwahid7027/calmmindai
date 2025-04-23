@@ -1,0 +1,171 @@
+.contact {
+  @apply bg-white py-32 relative overflow-hidden;
+  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(66, 153, 225, 0.2),
+    transparent
+  );
+}
+
+.sectionTitle {
+  @apply text-center mb-6;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: #1a202c;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.contactText {
+  @apply text-center text-xl text-secondary-500 mb-16 mx-auto;
+  max-width: 600px;
+  animation: fadeIn 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.formWrapper {
+  @apply max-w-6xl mx-auto;
+  animation: fadeInUp 1s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+.formContent {
+  @apply bg-white rounded-2xl p-8 md:p-12 flex flex-wrap gap-12;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.contactInfo {
+  @apply w-full md:w-[300px] bg-primary-500 text-white p-8 rounded-xl;
+  background: linear-gradient(135deg, #2b6cb0, #4299e1);
+}
+
+.infoTitle {
+  @apply text-2xl font-bold mb-4;
+}
+
+.infoText {
+  @apply text-white/90 mb-8;
+}
+
+.contactDetails {
+  @apply space-y-6;
+}
+
+.contactItem {
+  @apply flex items-center gap-4 text-white/90;
+}
+
+.contactIcon {
+  @apply text-2xl;
+}
+
+.contactForm {
+  @apply flex-1 space-y-6;
+}
+
+.formGroup {
+  @apply space-y-2;
+}
+
+.formLabel {
+  @apply block text-sm font-medium text-secondary-600;
+}
+
+.formInput,
+.formTextarea {
+  @apply w-full px-4 py-3 rounded-lg border border-gray-200 
+         focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 
+         transition-all duration-200;
+}
+
+.formTextarea {
+  @apply resize-none min-h-[120px];
+}
+
+.submitButton {
+  @apply w-full bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold
+         flex items-center justify-center gap-2
+         transition-all duration-300 hover:bg-primary-600 hover:-translate-y-1 
+         focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+}
+
+.buttonIcon {
+  @apply transition-transform duration-300;
+}
+
+.submitButton:hover .buttonIcon {
+  transform: translateX(4px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .contact {
+    @apply py-24;
+  }
+}
+
+@media (max-width: 768px) {
+  .formContent {
+    @apply p-6 gap-8;
+  }
+
+  .contactInfo {
+    @apply w-full;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact {
+    @apply py-20;
+  }
+
+  .sectionTitle {
+    @apply mb-4;
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+
+  .contactText {
+    @apply mb-12 text-lg;
+  }
+
+  .formContent {
+    @apply p-4;
+  }
+
+  .contactInfo {
+    @apply p-6;
+  }
+}

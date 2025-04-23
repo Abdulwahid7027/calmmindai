@@ -1,0 +1,187 @@
+.resources {
+  @apply bg-secondary-50 py-32 relative overflow-hidden;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.resources::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(66, 153, 225, 0.2),
+    transparent
+  );
+}
+
+.sectionTitle {
+  @apply text-center mb-20;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: #1a202c;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.resourcesGrid {
+  @apply grid grid-cols-3 gap-8 max-w-7xl mx-auto;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.resourceCard {
+  @apply bg-white p-8 rounded-2xl relative overflow-hidden flex flex-col;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+  animation: fadeInUp 0.8s ease-out forwards;
+  min-height: 500px;
+}
+
+.resourceCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #2b6cb0, #4299e1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.resourceCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.resourceCard:hover::before {
+  opacity: 1;
+}
+
+.resourceIcon {
+  @apply text-4xl mb-6;
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+.resourceTitle {
+  @apply text-2xl font-bold mb-4 text-secondary-700;
+  letter-spacing: -0.01em;
+}
+
+.resourceDescription {
+  @apply text-lg text-secondary-500 leading-relaxed mb-6;
+  opacity: 0.9;
+}
+
+.featureList {
+  @apply space-y-3 mb-8 flex-grow;
+}
+
+.featureItem {
+  @apply flex items-center gap-2 text-secondary-500;
+  transition: transform 0.3s ease;
+}
+
+.featureItem:hover {
+  transform: translateX(5px);
+}
+
+.featureDot {
+  @apply text-primary-500 text-xl;
+}
+
+.resourceButton {
+  @apply mt-auto bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold
+         transition-all duration-300 hover:bg-primary-600 hover:-translate-y-1 
+         focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  width: 100%;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .resources {
+    @apply py-24;
+  }
+
+  .resourcesGrid {
+    @apply gap-6;
+  }
+
+  .resourceCard {
+    @apply p-6;
+  }
+}
+
+@media (max-width: 768px) {
+  .resourcesGrid {
+    @apply grid-cols-2;
+  }
+
+  .sectionTitle {
+    @apply mb-16;
+  }
+
+  .resourceTitle {
+    @apply text-xl mb-3;
+  }
+
+  .resourceDescription {
+    @apply text-base;
+  }
+}
+
+@media (max-width: 640px) {
+  .resources {
+    @apply py-20;
+  }
+
+  .resourcesGrid {
+    @apply grid-cols-1 gap-8;
+  }
+
+  .sectionTitle {
+    @apply mb-12;
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+
+  .resourceCard {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}

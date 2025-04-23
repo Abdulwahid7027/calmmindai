@@ -1,0 +1,98 @@
+.hero {
+  @apply flex flex-col items-center justify-center text-center py-32 px-4 bg-white;
+  min-height: 90vh;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.98)
+  );
+}
+
+.heroTitle {
+  @apply font-bold text-secondary-700 mb-8 leading-tight mx-auto;
+  font-size: clamp(3.5rem, 5vw, 5rem);
+  max-width: min(900px, 90%);
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.heroText {
+  @apply text-secondary-500 mb-12 mx-auto leading-relaxed;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  max-width: min(700px, 90%);
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.primaryButton {
+  @apply bg-primary-500 text-white px-12 py-5 rounded-xl font-semibold text-xl
+         transition-all duration-300 hover:bg-primary-600 hover:-translate-y-1 hover:shadow-lg
+         focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  letter-spacing: 0.5px;
+}
+
+/* Animation classes */
+.heroTitle,
+.heroText {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.primaryButton {
+  animation: fadeIn 1s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    @apply py-24;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    @apply py-20;
+  }
+
+  .heroTitle {
+    @apply mb-6;
+  }
+
+  .heroText {
+    @apply mb-10;
+  }
+
+  .primaryButton {
+    @apply px-10 py-4;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    @apply py-16;
+    min-height: 80vh;
+  }
+
+  .primaryButton {
+    @apply w-full max-w-xs px-8 py-4 text-lg;
+  }
+}
